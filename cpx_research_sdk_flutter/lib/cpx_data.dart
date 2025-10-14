@@ -35,20 +35,17 @@ void showCPXBrowserOverlay([String? surveyID]) => surveyID != null
         .showBrowser(singleSurvey: true, surveyID: surveyID)
     : CPXController.controller.showBrowser();
 
-void showCPXBrowserDialog({
-  required BuildContext context,
-  required CPXConfig config,
-}) {
+void showCPXBrowserDialog(
+    {required BuildContext context,
+    required CPXConfig config,
+    required VoidCallback onclose}) {
   CPXController.controller.config = config;
   CPXNetworkService().fetchSurveysAndTransactions();
 
   showDialog(
     context: context,
     builder: (context) => SizedBox.expand(
-      child: CPXBrowserView(
-        CPXBrowserTab.home,
-        onClose: () => Navigator.pop(context),
-      ),
+      child: CPXBrowserView(CPXBrowserTab.home, onClose: onclose),
     ),
   );
 }
