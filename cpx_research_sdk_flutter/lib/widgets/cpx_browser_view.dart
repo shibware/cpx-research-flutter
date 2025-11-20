@@ -101,7 +101,7 @@ class _CPXBrowserViewState extends State<CPXBrowserView> {
         ),
        Expanded(
   child: Container(
-    margin: const EdgeInsets.only(bottom: 150), // 🔥 Alttan 150px boşluk
+    margin: const EdgeInsets.only(bottom: 100), // 🔥 Alttan 150px boşluk
     color: Colors.white,
     child: Stack(
       children: [
