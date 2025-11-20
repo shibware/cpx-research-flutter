@@ -99,23 +99,24 @@ class _CPXBrowserViewState extends State<CPXBrowserView> {
             ),
           ],
         ),
-        Expanded(
-          child: ColoredBox(
-            color: Colors.white,
-            child: Stack(
-              children: [
-                WebViewWidget(controller: _webController!),
-                if (isLoading)
-                  LinearProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(
-                        controller.config.accentColor),
-                    backgroundColor: Colors.white,
-                  ),
-                if (isAlertDisplayed) showReloadOnError(),
-              ],
-            ),
+       Expanded(
+  child: Container(
+    margin: const EdgeInsets.only(bottom: 150), // 🔥 Alttan 150px boşluk
+    color: Colors.white,
+    child: Stack(
+      children: [
+        WebViewWidget(controller: _webController!),
+        if (isLoading)
+          LinearProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(controller.config.accentColor),
+            backgroundColor: Colors.white,
           ),
-        ),
+        if (isAlertDisplayed) showReloadOnError(),
+      ],
+    ),
+  ),
+)
+
       ],
     ),
   );
